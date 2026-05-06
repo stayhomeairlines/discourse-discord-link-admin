@@ -15,6 +15,7 @@ ja:
         section_help: "メンバーの Discourse メールアドレスと Discord メールが異なるため、OAuth ログインで自動マージできない場合に使用します。"
         username_label: "Discourse ユーザー名"
         username_placeholder: "例: sasapiyo"
+        username_help: "入力すると既存ユーザーがサジェストされます。"
         discord_id_label: "Discord ユーザー ID"
         discord_id_placeholder: "例: 350988416353042433"
         discord_id_help: "19桁の Discord ID。Discord で開発者モード ON にして、対象ユーザーを右クリック → 「ユーザー ID をコピー」"

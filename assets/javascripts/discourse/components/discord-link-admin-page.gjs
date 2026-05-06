@@ -1,16 +1,18 @@
 import Component from "@glimmer/component";
 import { tracked } from "@glimmer/tracking";
 import { action } from "@ember/object";
+import { hash } from "@ember/helper";
 import { on } from "@ember/modifier";
 import { ajax } from "discourse/lib/ajax";
 import { i18n } from "discourse-i18n";
 import DButton from "discourse/components/d-button";
+import UserChooser from "select-kit/components/user-chooser";
 
 export default class DiscordLinkAdminPage extends Component {
   @tracked tab = "link";
 
   // Link tab state
-  @tracked linkUsername = "";
+  @tracked linkUsernames = [];
   @tracked linkDiscordId = "";
   @tracked linkLoading = false;
   @tracked linkConflict = null;
@@ -36,6 +38,9 @@ export default class DiscordLinkAdminPage extends Component {
       ? "discord_link_admin.link.saving"
       : "discord_link_admin.link.submit";
   }
+  get linkUsername() {
+    return this.linkUsernames[0] || "";
+  }
 
   @action
   showLinkTab() {
@@ -55,8 +60,8 @@ export default class DiscordLinkAdminPage extends Component {
 
   // ---- Link flow ----
   @action
-  updateLinkUsername(e) {
-    this.linkUsername = e.target.value;
+  updateLinkUsernames(value) {
+    this.linkUsernames = value || [];
   }
   @action
   updateLinkDiscordId(e) {
@@ -108,7 +113,7 @@ export default class DiscordLinkAdminPage extends Component {
       });
 
       this.status = { type: "success", message: result.message };
-      this.linkUsername = "";
+      this.linkUsernames = [];
       this.linkDiscordId = "";
       this.linkConflict = null;
       this.linkConflictDeleteOld = false;
@@ -289,14 +294,12 @@ export default class DiscordLinkAdminPage extends Component {
                 <label for="dla-link-username">
                   {{i18n "discord_link_admin.link.username_label"}}
                 </label>
-                <input
-                  id="dla-link-username"
-                  type="text"
-                  value={{this.linkUsername}}
-                  {{on "input" this.updateLinkUsername}}
-                  placeholder={{i18n "discord_link_admin.link.username_placeholder"}}
-                  required
+                <UserChooser
+                  @value={{this.linkUsernames}}
+                  @onChange={{this.updateLinkUsernames}}
+                  @options={{hash maximum=1 excludeCurrentUser=false}}
                 />
+                <p class="dla-help">{{i18n "discord_link_admin.link.username_help"}}</p>
               </div>
               <div class="control-group">
                 <label for="dla-link-discord-id">

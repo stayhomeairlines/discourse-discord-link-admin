@@ -15,6 +15,7 @@ en:
         section_help: "Use when a member's Discourse email differs from their Discord email so OAuth login can't auto-merge."
         username_label: "Discourse username"
         username_placeholder: "e.g. sasapiyo"
+        username_help: "Start typing to search existing Discourse users."
         discord_id_label: "Discord User ID"
         discord_id_placeholder: "e.g. 350988416353042433"
         discord_id_help: "19-digit Discord snowflake. In Discord, enable Developer Mode then right-click → Copy User ID."
