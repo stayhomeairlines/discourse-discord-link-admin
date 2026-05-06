@@ -222,14 +222,17 @@ after_initialize do
 
   add_admin_route "discord_link_admin.title", "discord-link"
 
-  # Extend OmniAuth Discord HTTP timeouts so brief upstream jitter on the way
-  # to discord.com does not kill an OAuth dance. Faraday default is ~5s,
-  # which is fragile on a residential link with occasional latency spikes.
-  if defined?(::OmniAuth::Strategies::Discord)
-    ::OmniAuth::Strategies::Discord.default_options[:client_options] ||= {}
-    existing_conn_opts = ::OmniAuth::Strategies::Discord.default_options[:client_options][:connection_opts] || {}
+  # Extend Discord OAuth strategy HTTP timeouts so brief upstream jitter on
+  # the way to discord.com does not kill an OAuth dance. Faraday default is
+  # ~5s, which is fragile on a residential link with occasional latency
+  # spikes. Discourse uses a nested DiscordStrategy class (NOT
+  # OmniAuth::Strategies::Discord — that gem is not bundled).
+  if defined?(::Auth::DiscordAuthenticator::DiscordStrategy)
+    strategy = ::Auth::DiscordAuthenticator::DiscordStrategy
+    strategy.default_options[:client_options] ||= {}
+    existing_conn_opts = strategy.default_options[:client_options][:connection_opts] || {}
     existing_request   = existing_conn_opts[:request] || {}
-    ::OmniAuth::Strategies::Discord.default_options[:client_options][:connection_opts] = existing_conn_opts.merge(
+    strategy.default_options[:client_options][:connection_opts] = existing_conn_opts.merge(
       request: existing_request.merge(open_timeout: 15, read_timeout: 15, timeout: 20),
     )
   end
