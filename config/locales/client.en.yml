@@ -1,0 +1,54 @@
+en:
+  admin_js:
+    admin:
+      site_text:
+        discord_link_admin: "Discord Account Link"
+  js:
+    discord_link_admin:
+      title: "Discord Account Link"
+      description: "Manually link or unlink a Discord account on a Discourse user. Admins only."
+      tab_link: "Link"
+      tab_unlink: "Unlink"
+
+      link:
+        section_title: "Link a Discord account"
+        section_help: "Use when a member's Discourse email differs from their Discord email so OAuth login can't auto-merge."
+        username_label: "Discourse username"
+        username_placeholder: "e.g. sasapiyo"
+        discord_id_label: "Discord User ID"
+        discord_id_placeholder: "e.g. 350988416353042433"
+        discord_id_help: "19-digit Discord snowflake. In Discord, enable Developer Mode then right-click → Copy User ID."
+        submit: "Link"
+        saving: "Linking…"
+
+      unlink:
+        section_title: "Unlink a Discord account"
+        section_help: "Remove a Discord OAuth association. Useful for cleaning up auto-created duplicate users."
+        discord_id_label: "Discord User ID"
+        check: "Check current link"
+        confirm: "Unlink"
+        delete_user_label: "Also delete the user (%{username})"
+        delete_user_only_if_no_posts: "Available only when the user has 0 posts and is not staff."
+        cancel: "Cancel"
+
+      conflict:
+        title: "⚠ Discord ID is already linked to another user"
+        intro: "This Discord ID is currently linked to the user below. They may have logged in once and got auto-registered."
+        proceed_intro: "If you proceed, the link will move to %{target}. The previous user will keep existing (without this Discord link) unless you choose to delete it below."
+        delete_old_label: "Also delete the previous user (%{username})"
+        delete_old_only_if_no_posts: "Available only when the previous user has 0 posts and is not staff."
+        confirm_force: "Move link & continue"
+        cancel: "Cancel"
+
+      user_card:
+        post_count: "Posts"
+        topic_count: "Topics"
+        email: "Email"
+        trust_level: "Trust level"
+        admin: "Admin"
+        moderator: "Moderator"
+        created_at: "Created"
+        can_delete: "Can be deleted"
+        cannot_delete: "Cannot be deleted (has posts or is staff)"
+        yes: "yes"
+        no: "no"

@@ -1,0 +1,4 @@
+plugins:
+  discord_link_admin_enabled:
+    default: true
+    client: false

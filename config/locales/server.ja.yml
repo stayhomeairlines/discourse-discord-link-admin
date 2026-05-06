@@ -1,0 +1,19 @@
+ja:
+  discord_link_admin:
+    username_required: "ユーザー名が必要です"
+    invalid_discord_id: "Discord ID は 15〜25 桁の数字である必要があります"
+    user_not_found: "Discourse ユーザー '%{username}' が見つかりません"
+    already_linked: "Discord ID は別ユーザー '%{username}' に紐付けられています"
+    conflict_message: "Discord ID は現在ユーザー '%{username}' に紐付けられています"
+    linked: "%{username} を Discord %{discord_id} に紐付けました"
+    linked_with_warning: "%{username} を Discord %{discord_id} に紐付けました (警告: %{warning})"
+    no_link_found: "その Discord ID の連携は見つかりませんでした"
+    preview_message: "Discord ID は現在ユーザー '%{username}' に紐付いています"
+    preview_orphan: "Discord 連携は存在しますが、ユーザーに紐付いていません (orphan)"
+    unlinked: "Discord %{discord_id} と %{username} の連携を解除しました"
+    unlinked_and_deleted: "Discord %{discord_id} の連携を解除し、ユーザー %{username} を削除しました"
+    unlinked_orphan: "孤立した Discord 連携 %{discord_id} を削除しました"
+    unlinked_with_warning: "Discord %{discord_id} の連携を解除しました (警告: %{warning})"
+    title: "Discord アカウント連携"
+  site_settings:
+    discord_link_admin_enabled: "Discord アカウント連携 admin ツールを有効化する"

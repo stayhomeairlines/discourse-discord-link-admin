@@ -1,0 +1,183 @@
+.discord-link-admin {
+  max-width: 720px;
+  padding: 1.5rem 0;
+
+  > h2 {
+    margin-bottom: 0.4rem;
+  }
+
+  .description {
+    color: var(--secondary-medium, #666);
+    margin-bottom: 1.4rem;
+  }
+
+  .dla-tabs {
+    list-style: none;
+    margin: 0 0 1.5rem 0;
+    padding: 0;
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--primary-low, #e0e0e0);
+
+    li button {
+      background: none;
+      border: none;
+      padding: 0.6rem 1.1rem;
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--primary-medium, #555);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    li.active button {
+      color: var(--tertiary, #008664);
+      border-bottom-color: var(--tertiary, #008664);
+    }
+  }
+
+  .dla-status {
+    margin-bottom: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+
+    &.alert-success {
+      background: #e8f5e9;
+      color: #1b5e20;
+      border-color: #a5d6a7;
+    }
+    &.alert-error {
+      background: #ffebee;
+      color: #b71c1c;
+      border-color: #ef9a9a;
+    }
+  }
+
+  .dla-section {
+    margin-top: 1rem;
+  }
+
+  .dla-help {
+    color: var(--secondary-medium, #666);
+    font-size: 0.9rem;
+    margin: 0.4rem 0 0.8rem;
+  }
+
+  .dla-form {
+    margin-top: 1.25rem;
+  }
+
+  .control-group {
+    margin-bottom: 1.25rem;
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.55rem 0.75rem;
+      border: 1px solid var(--primary-low-mid, #ccc);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.95rem;
+
+      &:focus {
+        outline: none;
+        border-color: var(--tertiary, #008664);
+        box-shadow: 0 0 0 3px rgba(0, 134, 100, 0.18);
+      }
+    }
+  }
+
+  .dla-conflict {
+    margin: 1.25rem 0;
+    padding: 1.1rem 1.25rem;
+    border-radius: 4px;
+    border: 1px solid transparent;
+
+    &.alert-warning {
+      background: #fff8e1;
+      border-color: #ffd54f;
+    }
+    &.alert-info {
+      background: #e3f2fd;
+      border-color: #90caf9;
+    }
+
+    h4 {
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+    }
+
+    p {
+      margin: 0.35rem 0;
+    }
+  }
+
+  .dla-user-card {
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
+    padding: 0.8rem 1rem;
+    margin: 0.85rem 0;
+
+    .dla-user-row {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+
+      .dla-user-meta {
+        font-family: var(--monospace, monospace);
+        font-size: 0.82rem;
+        opacity: 0.7;
+      }
+    }
+
+    .dla-user-fields {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 0.2rem 1rem;
+      font-size: 0.88rem;
+      margin: 0.5rem 0 0;
+
+      dt {
+        font-weight: 600;
+        color: var(--secondary-medium, #555);
+      }
+      dd {
+        margin: 0;
+        word-break: break-all;
+      }
+    }
+  }
+
+  .dla-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 0.6rem 0;
+    cursor: pointer;
+    user-select: none;
+
+    input[type="checkbox"] {
+      margin-top: 0.25rem;
+    }
+  }
+
+  .dla-actions {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 1.1rem;
+
+    .btn-danger {
+      background: #d04a4a;
+      color: white;
+      border: 1px solid #b73a3a;
+    }
+  }
+}

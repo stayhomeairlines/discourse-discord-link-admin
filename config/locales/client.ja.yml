@@ -1,0 +1,54 @@
+ja:
+  admin_js:
+    admin:
+      site_text:
+        discord_link_admin: "Discord アカウント連携"
+  js:
+    discord_link_admin:
+      title: "Discord アカウント連携"
+      description: "Discourse ユーザーと Discord アカウントの連携を手動で作成・解除します。管理者のみが利用できます。"
+      tab_link: "連携を作成"
+      tab_unlink: "連携を解除"
+
+      link:
+        section_title: "Discord アカウントを連携する"
+        section_help: "メンバーの Discourse メールアドレスと Discord メールが異なるため、OAuth ログインで自動マージできない場合に使用します。"
+        username_label: "Discourse ユーザー名"
+        username_placeholder: "例: sasapiyo"
+        discord_id_label: "Discord ユーザー ID"
+        discord_id_placeholder: "例: 350988416353042433"
+        discord_id_help: "19桁の Discord ID。Discord で開発者モード ON にして、対象ユーザーを右クリック → 「ユーザー ID をコピー」"
+        submit: "連携する"
+        saving: "実行中…"
+
+      unlink:
+        section_title: "Discord アカウントの連携を解除する"
+        section_help: "Discord OAuth 連携を削除します。Discord ログインで自動作成された重複ユーザーの整理にも使えます。"
+        discord_id_label: "Discord ユーザー ID"
+        check: "現在の連携を確認"
+        confirm: "連携を解除"
+        delete_user_label: "ユーザー (%{username}) も削除する"
+        delete_user_only_if_no_posts: "ユーザーに投稿がなく、staff でない場合のみ選択可能"
+        cancel: "キャンセル"
+
+      conflict:
+        title: "⚠ この Discord ID は別ユーザーに紐付いています"
+        intro: "現在この Discord ID は以下のユーザーに紐付いています。Discord ログインで自動作成された重複アカウントの可能性があります。"
+        proceed_intro: "続行すると連携が %{target} に移動します。前のユーザーは Discord 連携を失いますが、そのまま残ります。下のチェックを入れると、前のユーザーも一緒に削除します。"
+        delete_old_label: "前のユーザー (%{username}) も削除する"
+        delete_old_only_if_no_posts: "前のユーザーに投稿がなく、staff でない場合のみ選択可能"
+        confirm_force: "上書きして移動する"
+        cancel: "キャンセル"
+
+      user_card:
+        post_count: "投稿数"
+        topic_count: "トピック数"
+        email: "メール"
+        trust_level: "信頼レベル"
+        admin: "管理者"
+        moderator: "モデレーター"
+        created_at: "作成日"
+        can_delete: "削除可"
+        cannot_delete: "削除不可 (投稿があるか staff)"
+        yes: "はい"
+        no: "いいえ"
