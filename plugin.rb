@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 # name: discord-link-admin
-# about: Admin tool to manually link/unlink Discord accounts to existing Discourse users
-# version: 0.1.0
+# about: Admin tool to manually link/unlink Discord accounts to existing Discourse users; also extends OmniAuth Discord HTTP timeouts to better tolerate transient upstream jitter.
+# version: 0.2.0
 # authors: Stay Home Airlines
 # url: https://github.com/stayhomeairlines/discourse-discord-link-admin
 
@@ -221,4 +221,16 @@ after_initialize do
   end
 
   add_admin_route "discord_link_admin.title", "discord-link"
+
+  # Extend OmniAuth Discord HTTP timeouts so brief upstream jitter on the way
+  # to discord.com does not kill an OAuth dance. Faraday default is ~5s,
+  # which is fragile on a residential link with occasional latency spikes.
+  if defined?(::OmniAuth::Strategies::Discord)
+    ::OmniAuth::Strategies::Discord.default_options[:client_options] ||= {}
+    existing_conn_opts = ::OmniAuth::Strategies::Discord.default_options[:client_options][:connection_opts] || {}
+    existing_request   = existing_conn_opts[:request] || {}
+    ::OmniAuth::Strategies::Discord.default_options[:client_options][:connection_opts] = existing_conn_opts.merge(
+      request: existing_request.merge(open_timeout: 15, read_timeout: 15, timeout: 20),
+    )
+  end
 end
